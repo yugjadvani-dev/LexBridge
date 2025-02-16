@@ -1,16 +1,42 @@
 {
-  "name": "backend",
+  "name": "lexbridge-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "LexBridge is a seamless platform that connects clients with verified legal experts, offering secure communication, easy appointment booking, transparent pricing, and comprehensive legal services—all in one place.",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "start": "ts-node src/index.ts",
+    "lint": "eslint src/**/*.{ts,tsx}",
+    "prettier": "prettier --write 'src/**/*.{ts,tsx}'",
+    "format": "npm run prettier && npm run lint",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "NodeJS",
+    "ExpressJS",
+    "JavaScript",
+    "TypeScript",
+    "PostgreSQL"
+  ],
+  "author": "Yug Jadvani",
   "license": "ISC",
-  "type": "commonjs",
   "devDependencies": {
-    "typescript": "^5.7.3"
+    "@eslint/js": "^9.20.0",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.24.0",
+    "@typescript-eslint/parser": "^8.24.0",
+    "eslint": "^9.20.1",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "nodemon": "^3.1.9",
+    "prettier": "^3.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.24.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
   }
 }
