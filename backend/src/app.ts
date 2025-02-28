@@ -7,6 +7,8 @@
 import express from 'express';
 import cors from 'cors';
 import routes from './routes';
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocument from './swagger-output.json'
 
 const app = express();
 
@@ -18,7 +20,7 @@ const app = express();
  */
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN,
+    origin: "*",
     credentials: true,
   }),
 );
@@ -28,5 +30,7 @@ app.use(express.static('public'));
 
 // Mount API routes under /api/v1 prefix
 app.use('/api/v1', routes);
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 export default app;
