@@ -9,7 +9,6 @@ import express from 'express';
 // Initialize the main router
 const router = express.Router();
 
-// Mount route modules
-// router.use('/user', userRoutes); // User management routes (profile, settings, etc.)
+
 
 export default router;
