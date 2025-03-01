@@ -6,10 +6,10 @@
  * verification function to confirm connectivity at startup.
  */
 
-import dotenv from 'dotenv'
-import {Pool} from 'pg'
+import dotenv from "dotenv";
+import { Pool } from "pg";
 
-dotenv.config()
+dotenv.config();
 
 /**
  * PostgreSQL connection pool configuration
@@ -22,16 +22,16 @@ const pool = new Pool({
   database: process.env.DB_NAME,
   host: process.env.DB_HOST,
   port: Number(process.env.DB_PORT),
-})
+});
 
 // Verify database connection on startup
 async function verifyConnection(): Promise<void> {
   try {
     const client = await pool.connect();
     console.log("✅ Connected to PostgreSQL database");
-    client.release()
+    client.release();
   } catch (error) {
-    console.log('❌ Error connecting to the database:', error)
+    console.log("❌ Error connecting to the database:", error);
   }
 }
 

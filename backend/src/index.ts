@@ -4,7 +4,7 @@
  * It initializes and starts the Express server on the specified port.
  */
 
-import app from './app';
+import app from "./app";
 
 // Start the server on specified port or default to 8080
 const PORT = process.env.PORT || 8080;

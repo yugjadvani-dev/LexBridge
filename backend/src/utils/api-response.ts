@@ -3,7 +3,7 @@
  * Provides a standardized way to format API responses across the application.
  */
 
-import { Response } from 'express';
+import { Response } from "express";
 
 /**
  * Class to handle API responses with consistent structure
@@ -20,7 +20,7 @@ class ApiResponse {
    * @param data - Response data object
    * @param message - Response message (defaults to 'Success')
    */
-  constructor(statusCode: number, data: object, message = 'Success') {
+  constructor(statusCode: number, data: object, message = "Success") {
     this.statusCode = statusCode;
     this.data = data;
     this.message = message;
@@ -46,8 +46,8 @@ export const sendResponse = (res: Response, statusCode: number, data: any, messa
  * @param error - Error object or message
  * @param defaultMessage - Default message to use if error doesn't have a message
  */
-export const sendError = (res: Response, error: any, defaultMessage: string = 'Something went wrong'): void => {
-  console.error('Error:', error);
+export const sendError = (res: Response, error: any, defaultMessage: string = "Something went wrong"): void => {
+  console.error("Error:", error);
   const statusCode = error.statusCode || 500;
   const message = error.message || defaultMessage;
   sendResponse(res, statusCode, {}, message);
