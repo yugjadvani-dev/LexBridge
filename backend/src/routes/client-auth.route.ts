@@ -20,4 +20,9 @@ const router = express.Router();
 
 router.post("/register", clientRegistration);
 
+/**
+ * Protected Routes
+ * These routes require valid JWT authentication
+ */
+
 export default router;

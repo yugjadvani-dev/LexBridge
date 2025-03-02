@@ -1,7 +1,7 @@
 /**
  * Database Configuration Module
  *
- * This module sets up and manages a PostgreSQL connection pool using the `pg` library.
+ * This module sets up and manages a PostgresSQL connection pool using the `pg` library.
  * It leverages environment variables for secure configuration and includes an asynchronous
  * verification function to confirm connectivity at startup.
  */
@@ -12,7 +12,7 @@ import { Pool } from "pg";
 dotenv.config();
 
 /**
- * PostgreSQL connection pool configuration
+ * PostgresSQL connection pool configuration
  * Uses environment variables for secure configuration
  * Enables connection pooling for better performance and resource management
  */

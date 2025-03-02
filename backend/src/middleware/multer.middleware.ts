@@ -23,7 +23,7 @@ const storage = multer.diskStorage({
     cb: (error: Error | null, destination: string) => void
   ){
     cb(null, './public/temp');
-  }
+  },
 
   /**
    * Generate unique filename for uploaded file
@@ -32,4 +32,16 @@ const storage = multer.diskStorage({
    * @param file - File object from multer
    * @param cb - Callback to handle filename
    */
+  filename: function(
+    req: Express.Request,
+    file: Express.Multer.File,
+    cb: (error: Error | null, destination: string) => void
+  ){
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
+    cb(null, file.filename + '-' + uniqueSuffix);
+  }
 })
+
+const upload = multer({storage})
+
+export default upload;

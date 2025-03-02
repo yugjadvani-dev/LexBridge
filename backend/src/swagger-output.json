@@ -5,7 +5,7 @@
     "title": "LexBridge Document",
     "description": "LexBridge is a seamless platform that connects clients with verified legal experts, offering secure communication, easy appointment booking, transparent pricing, and comprehensive legal services all in one place."
   },
-  "host": "localhost:8080",
+  "host": "localhost:8080/api/v1",
   "basePath": "/",
   "schemes": [
     "http",
@@ -15,6 +15,29 @@
     "/client-auth/register": {
       "post": {
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "first_name": {
+                  "example": "any"
+                },
+                "last_name": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "default": {
             "description": ""

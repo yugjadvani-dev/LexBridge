@@ -7,7 +7,7 @@ const doc = {
     description:
       "LexBridge is a seamless platform that connects clients with verified legal experts, offering secure communication, easy appointment booking, transparent pricing, and comprehensive legal services all in one place.",
   },
-  host: `localhost:${process.env.PORT || 8080}`,
+  host: `localhost:${process.env.PORT || 8080}/api/v1`,
   basePath: "/",
   schemes: ["http", "https"],
 };
