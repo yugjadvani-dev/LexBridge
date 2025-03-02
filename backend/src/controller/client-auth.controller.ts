@@ -9,13 +9,14 @@ import { sendError, sendResponse } from "../utils/api-response";
 
 /**
  * Register a new client
- * @route POST `/api/client/registration`
+ * @route POST `/api/client-auth/register`
  * @param {Request} req - Express request object containing client registration data
  * @param {Response} res - Express response object
  * @throws {Error} If registration fails
  */
 export const clientRegistration = async (req: Request, res: Response): Promise<void> => {
   try {
+    const {} = req.body;
 
   } catch (error) {
     sendError(res, error, "Something went wrong while client registration");

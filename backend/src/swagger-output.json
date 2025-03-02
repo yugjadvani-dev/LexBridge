@@ -11,5 +11,16 @@
     "http",
     "https"
   ],
-  "paths": {}
+  "paths": {
+    "/client-auth/register": {
+      "post": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    }
+  }
 }
