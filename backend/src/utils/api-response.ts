@@ -47,7 +47,6 @@ export const sendResponse = (res: Response, statusCode: number, data: any, messa
  * @param defaultMessage - Default message to use if error doesn't have a message
  */
 export const sendError = (res: Response, error: any, defaultMessage: string = "Something went wrong"): void => {
-  console.error("Error:", error);
   const statusCode = error.statusCode || 500;
   const message = error.message || defaultMessage;
   sendResponse(res, statusCode, {}, message);
