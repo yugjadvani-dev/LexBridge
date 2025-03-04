@@ -10,6 +10,7 @@ import { validateRequiredFields } from "../utils/validate-required-fields";
 import { comparePassword, hashPassword } from "../utils/auth-utils";
 import generateAuthToken from "../utils/generate-auth-token";
 import pool from "../db";
+import { sendClientWelcomeEmail } from "../email-templete/send-client-welcome-email";
 
 /**
  * Register a new client
@@ -40,6 +41,12 @@ export const clientRegistration = async (req: Request, res: Response): Promise<v
       "INSERT INTO clients (username, email, password) VALUES ($1, $2, $3) RETURNING id, username, email",
       [username, email, hashedPassword],
     )
+
+    // Send welcome email
+    await sendClientWelcomeEmail({
+      name: username,
+      email,
+    });
 
     sendResponse(res, 201, newClient.rows[0], "Client Registration Successfully");
     return;
@@ -73,7 +80,7 @@ export const clientLogin = async (req: Request, res: Response): Promise<void> =>
     }
 
     if (!clientExists?.rows[0]?.is_verified) {
-      sendResponse(res, 401, {}, "Client is not verified");
+      sendResponse(res, 401, {}, "Client is not verified, Please verify your email");
       return;
     }
 
