@@ -10,7 +10,7 @@ export class CustomError extends Error {
     this.status = status;
     this.additionalInfo = additionalInfo;
   }
-};
+}
 
 export interface IResponseError {
   message: string;
