@@ -6,10 +6,8 @@
  * verification function to confirm connectivity at startup.
  */
 
-import dotenv from "dotenv";
 import { Pool } from "pg";
-
-dotenv.config();
+import config from "../config";
 
 /**
  * PostgresSQL connection pool configuration
@@ -17,11 +15,11 @@ dotenv.config();
  * Enables connection pooling for better performance and resource management
  */
 const pool = new Pool({
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  host: process.env.DB_HOST,
-  port: Number(process.env.DB_PORT),
+  user: config.db.user,
+  password: config.db.password,
+  database: config.db.name,
+  host: config.db.host,
+  port: Number(config.db.port),
 });
 
 // Verify database connection on startup

@@ -10,3 +10,7 @@ export const hashPassword = async (myPlaintextPassword: string) => {
   const saltRounds = 10;
   return await bcrypt.hash(myPlaintextPassword, saltRounds)
 }
+
+export const comparePassword = async (myPlaintextPassword: string, hashedPassword: string) => {
+  return await bcrypt.compare(myPlaintextPassword, hashedPassword)
+}

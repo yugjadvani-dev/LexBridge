@@ -22,12 +22,42 @@
             "schema": {
               "type": "object",
               "properties": {
+                "username": {
+                  "example": "any"
+                },
                 "first_name": {
                   "example": "any"
                 },
                 "last_name": {
                   "example": "any"
                 },
+                "email": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/client-auth/login": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
                 "email": {
                   "example": "any"
                 },

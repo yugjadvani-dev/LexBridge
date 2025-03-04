@@ -9,6 +9,8 @@ import cors from "cors";
 import routes from "./routes";
 import swaggerUi from "swagger-ui-express";
 import swaggerDocument from "./swagger-output.json";
+import { errorHandler } from "./middleware/error-handler";
+import config from "./config";
 
 const app = express();
 
@@ -28,8 +30,12 @@ app.use(express.json({ limit: "16kb" }));
 app.use(express.urlencoded({ extended: true, limit: "16kb" }));
 app.use(express.static("public"));
 
+// Add error handling as the last middleware, just prior to our app.listen call.
+// This ensures that all errors are always handled.
+app.use(errorHandler);
+
 // Mount API routes under /api/v1 prefix
-app.use("/api/v1", routes);
+app.use(`/${config.prefix}/v1`, routes);
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 

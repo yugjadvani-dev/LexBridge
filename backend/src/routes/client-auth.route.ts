@@ -9,7 +9,7 @@
  */
 
 import express from "express";
-import { clientRegistration } from "../controller/client-auth.controller";
+import { clientLogin, clientRegistration } from "../controller/client-auth.controller";
 
 const router = express.Router();
 
@@ -19,6 +19,7 @@ const router = express.Router();
  */
 
 router.post("/register", clientRegistration);
+router.post("/login", clientLogin);
 
 /**
  * Protected Routes
